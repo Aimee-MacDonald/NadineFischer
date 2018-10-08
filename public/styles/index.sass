@@ -113,6 +113,11 @@ p
   margin: 0.5rem
   border: 2px solid black
 
+.art-box
+  display: flex
+  flex-flow: nowrap column
+  align-items: center
+
 @media(min-width: 800px)
   #landing
     flex-flow: nowrap row
@@ -174,3 +179,14 @@ p
         width: 50%
         h2
           margin-bottom: 2rem
+
+  .art-box
+    flex-flow: nowrap row
+    margin-top: 2rem
+    p
+      max-width: 400px
+      margin: 2rem
+
+  #art-box2
+    p
+      order: -1
