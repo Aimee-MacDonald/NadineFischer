@@ -116,6 +116,29 @@ h2
   flex-flow: nowrap column
   align-items: center
 
+#msg
+  display: flex
+  flex-flow: nowrap column
+  align-items: center
+  background: $main-colour
+  padding: 0.5rem
+  form
+    display: flex
+    flex-flow: nowrap column
+    align-items: center
+    input
+      margin: 0.5rem
+      padding: 0.5rem
+      border-radius: 0.3rem
+    textarea
+      margin: 0.5rem
+      padding: 0.5rem 1rem
+      border-radius: 0.3rem
+    button
+      margin: 1rem
+      padding: 0.5rem 1rem
+      border-radius: 0.3rem
+
 @media(min-width: 800px)
   #landing
     flex-flow: nowrap row
@@ -188,3 +211,17 @@ h2
   #art-box2
     p
       order: -1
+
+  #msg
+    flex-flow: nowrap row
+    margin-top: 2rem
+    padding-top: 1rem
+    p
+      width: 50%
+      text-align: center
+    form
+      width: 50%
+      input
+        width: 80%
+      textarea
+        width: 75%

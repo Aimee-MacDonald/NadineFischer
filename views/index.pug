@@ -47,5 +47,12 @@ html(lang="en")
       div(class="art-box")
         div(class="medium-image")
         p Lorem ipsum dolor sit amet, at option dolores persecuti vis, eam at mollis iuvaret. Id ius tempor consectetuer. Timeam imperdiet te duo, eos ad quis omnesque disputando, eu dicit definiebas necessitatibus mea. Ne est meis vidit pericula.
+    div(id="msg")
+      p Send me a Message
+      form(action="/message", method="post")
+        input(placeholder="Your name")
+        input(type="email", placeholder="Your email")
+        textarea(placeholder="Your message")
+        button(type="submit") Send
     script(src="/scripts/index.js")
         
