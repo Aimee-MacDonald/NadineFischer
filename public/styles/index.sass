@@ -29,21 +29,23 @@ h2
 #icons
   display: flex
 
-.icon
-  width: 3rem
-  height: 3rem
-  background: lighten($main-colour, 50)
-  border-radius: 50%
-  border: 3px outset $main-colour
-  box-shadow: 0 5px 10px 0 darken($main-colour, 15)
-  margin: 0.5rem
-  display: flex
-  justify-content: center
-  align-items: center
-  transition: 0.5s
+.icon-bounds
+  .icon
+    width: 3rem
+    height: 3rem
+    background: lighten($main-colour, 50)
+    border-radius: 50%
+    border: 3px outset $main-colour
+    box-shadow: 0 5px 10px 0 darken($main-colour, 15)
+    margin: 0.5rem
+    display: flex
+    justify-content: center
+    align-items: center
+    transition: 0.5s
   &:hover
-    transform: translateY(-20px) rotateX(180deg)
-    box-shadow: 0 -5px 10px 0 darken($main-colour, 15)
+    .icon
+      transform: translateY(-20px) rotateX(180deg)
+      box-shadow: 0 -5px 10px 0 darken($main-colour, 15)
 
 #feature-image
   background-image: url("../images/feature.jpg")
