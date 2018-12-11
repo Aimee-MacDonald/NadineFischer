@@ -8,6 +8,46 @@ html(lang="en")
     title Nadine Fischer
   body
     div(id="landing")
+      div(id="landing-image")
+      h1 Nadine Fischer
+      div(id="icons") icons
+      p Lorem ipsum dolor sit amet, at option dolores persecuti vis, eam at mollis iuvaret. Id ius tempor consectetuer. Timeam imperdiet te duo, eos ad quis omnesque disputando, eu dicit definiebas necessitatibus mea. Ne est meis vidit pericula.
+      
+    div(id="main-container")
+      
+      div(id="hnm", class="container")
+        h1 Hair and Makeup
+        div(id="hnm-images")
+          //div(class="hnm-image-holder")
+          //div(class="hnm-image-holder")
+          //div(class="hnm-image-holder")
+          //div(class="hnm-image-holder")
+          //div(class="hnm-image-holder")
+          //button View More
+          
+          //div(class="hnm-image-holder hide-extend")
+          //div(class="hnm-image-holder hide-extend")
+          
+        
+      div(id="sfx", class="container")
+        h1 Special Effects
+        div(id="sfx-images")
+        
+      div(id="reel", class="container")
+        h1 reel
+        
+      div(id="art", class="container")
+        h1 art
+      
+    div(id="msg")
+      p Send me a message
+      form(action="/message", method="post")
+        input(placeholder="Your name")
+        input(type="email", placeholder="Your email")
+        textarea(placeholder="Your message")
+        button(type="submit") Send
+      
+    //div(id="landing")
       div(id="header")
         h1 Nadine Fischer
         div(id="icons")
@@ -28,38 +68,14 @@ html(lang="en")
               image(src="/images/msg.svg")
       div(id="feature-image")
       p Lorem ipsum dolor sit amet, at option dolores persecuti vis, eam at mollis iuvaret. Id ius tempor consectetuer. Timeam imperdiet te duo, eos ad quis omnesque disputando, eu dicit definiebas necessitatibus mea. Ne est meis vidit pericula.
-    div(id="hnm")
-      h1 Hair & Makeup
-      div(id="small-images")
-        div(class="small-image", id="hnmsmall1")
-        div(class="small-image", id="hnmsmall2")
-      div(class="large-image", id="hnmbig")
-    div(id="sfx")
-      h1 Special Effects
-      div(id="sfxslider")
-        div(id="sfxtext")
-          h2 Title
-          p Lorem ipsum dolor sit amet, at option dolores persecuti vis, eam at mollis iuvaret. Id ius tempor consectetuer. Timeam imperdiet te duo, eos ad quis omnesque disputando, eu dicit definiebas necessitatibus mea. Ne est meis vidit pericula.
-        div(class="large-image", id="imgsfx")
-    div(id="reels")
-      h1 Project Reels
-    div(id="art")
-      h1 Other Art
-      div(class="art-box")
-        div(class="medium-image")
-        p Lorem ipsum dolor sit amet, at option dolores persecuti vis, eam at mollis iuvaret. Id ius tempor consectetuer. Timeam imperdiet te duo, eos ad quis omnesque disputando, eu dicit definiebas necessitatibus mea. Ne est meis vidit pericula.
-      div(class="art-box", id="art-box2")
-        div(class="medium-image")
-        p Lorem ipsum dolor sit amet, at option dolores persecuti vis, eam at mollis iuvaret. Id ius tempor consectetuer. Timeam imperdiet te duo, eos ad quis omnesque disputando, eu dicit definiebas necessitatibus mea. Ne est meis vidit pericula.
-      div(class="art-box")
-        div(class="medium-image")
-        p Lorem ipsum dolor sit amet, at option dolores persecuti vis, eam at mollis iuvaret. Id ius tempor consectetuer. Timeam imperdiet te duo, eos ad quis omnesque disputando, eu dicit definiebas necessitatibus mea. Ne est meis vidit pericula.
-    div(id="msg")
+    //div(id="msg")
       p Send me a Message
       form(action="/message", method="post")
         input(placeholder="Your name")
         input(type="email", placeholder="Your email")
         textarea(placeholder="Your message")
         button(type="submit") Send
-    script(src="/scripts/index.js")
+      
+    script(src="/scripts/hnm.js")
+    script(src="/scripts/sfx.js")
         
