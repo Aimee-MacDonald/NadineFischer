@@ -1,57 +1,95 @@
-for(var i = 0; i < 8; i++){
-  if(i < 5){
-    var tempdiv = document.createElement("div");
-    tempdiv.classList = "hnm-image-holder";
+var image_holder = [new ImageHolder("row", 2500), new ImageHolder("row", 2500),
+                    new ImageHolder("row", 5000), new ImageHolder("row", 5000),
+                    new ImageHolder("column", 1000), new ImageHolder("row", 5000),
+                    new ImageHolder("column", 1000)];
 
-    var image = document.createElement("div");
-    image.classList = "hnm-image";
-    image.style.backgroundImage = "url(../images/temp/special_effects/IMG-20151214-WA0003.jpg)";
-    image.style.width = "100%";
-    tempdiv.append(image);
+image_holder.forEach(function(ih, i){
+  ih.addImage("IMG-20150709-WA0008.jpg");
+  ih.addImage("IMG-20150709-WA0008.jpg");
+  ih.addImage("IMG-20150709-WA0008.jpg");
 
-    document.getElementById("hnm-images").append(tempdiv);
-  }else if(i === 5){
-    var tempdiv = document.createElement("button");
-    tempdiv.innerText = "View More";
-    document.getElementById("hnm-images").append(tempdiv);
-  }else{
-    var tempdiv = document.createElement("div");
-    tempdiv.classList = "hnm-image-holder hide-extend";
+  var el_ih = ih.compile();
 
-    var image = document.createElement("div");
-    image.classList = "hnm-image";
-    image.style.backgroundImage = "url(../images/temp/special_effects/IMG-20151214-WA0003.jpg)";
-    image.style.width = "100%";
-    tempdiv.append(image);
+  switch(i){
+    case 2:
+      ih.timer += 500;
+      break;
 
-    document.getElementById("hnm-images").append(tempdiv);
+    case 5:
+      var seeMore = document.createElement("button");
+      seeMore.innerText = "See More";
+      document.getElementById("hnm-images").append(seeMore);
+      el_ih.classList += " hide-extend";
+      break;
+
+    case 6:
+      ih.timer += 500;
+      el_ih.classList += " hide-extend";
+      break;
   }
-}
 
-/*
-function ImageHolder(){
-  this.images = [];
+  document.getElementById("hnm-images").append(el_ih);
+});
+
+var refreshRate = 150;
+window.setInterval(function(){
+  image_holder.forEach(function(ih){
+    ih.update(refreshRate);
+  });
+}, refreshRate);
+
+function ImageHolder(d, t){
+  this.direction = d;
+  this.turnTime = t;
+  this.timer = 0;
   this.index = 0;
+  this.images = [];
 
   this.addImage = function(imgURL){
-    var image = document.createElement("div");
-    image.classList = "sfx-image";
-    image.style.backgroundImage = "url(" + imgURL + ")";
-    image.style.width = (this.images.length === 0) ? "100%" : "0%";
-    this.images.push(image);
+    var tempImg = document.createElement("div");
+    tempImg.classList = "hnm-image";
+    tempImg.style.backgroundImage = "url(../images/temp/special_effects/" + imgURL + ")";
+    this.images.push(tempImg);
   }
 
-  this.compile = function(){
-    var holder = document.createElement("div");
-    holder.classList = "sfx-image-holder";
-    this.images.forEach(function(img){holder.append(img);});
-    return holder;
+  this.update = function(rr){
+    this.timer -= rr;
+
+    if(this.timer <= 0){
+      this.timer = this.turnTime;
+      this.showNext();
+    }
   }
 
   this.showNext = function(){
-    this.images[this.index].style.width = "0%";
-    this.index = (this.index < this.images.length - 1) ? this.index + 1 : 0;
-    this.images[this.index].style.width = "100%";
+    if(this.direction === "row"){
+      this.images[this.index].style.width = "0%";
+      this.index = (this.index < this.images.length - 1) ? this.index + 1 : 0;
+      this.images[this.index].style.width = "100%";
+    }else if (this.direction === "column") {
+      this.images[this.index].style.height = "0%";
+      this.index = (this.index < this.images.length - 1) ? this.index + 1 : 0;
+      this.images[this.index].style.height = "100%";
+    }
+  }
+
+  this.compile = function(){
+    var ih = document.createElement("div");
+    ih.classList = "hnm-image-holder";
+    ih.style.flexFlow = "nowrap " + this.direction;
+
+    if(this.direction === "row"){
+      this.images.forEach(function(img, i){
+        img.style.width = "0%";
+        ih.append(img);
+      });
+    }else if (this.direction === "column"){
+      this.images.forEach(function(img, i){
+        img.style.height = "0%";
+        ih.append(img);
+      });
+    }
+
+    return ih;
   }
 }
-*/

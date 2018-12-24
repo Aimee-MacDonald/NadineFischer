@@ -6,7 +6,7 @@ body
   background: $background-color
 
 h1
-  margin: 0
+  margin: 0 0 0.5rem 0
   text-align: center
 
 p
@@ -32,6 +32,7 @@ p
   align-items: center
   .container
     max-width: 800px
+    margin-top: 1.5rem
 
 #hnm-images
   display: flex
@@ -42,18 +43,26 @@ p
     width: 7rem
     height: 7rem
     margin: 0.5rem
+    display: flex
     .hnm-image
       width: 100%
       height: 100%
       background-size: cover
       transition: 1s
   button
-    background: green
     width: 7rem
     height: 7rem
     margin: 0.5rem
+    border: 1px solid $main-colour
+    border-radius: 5px
+    background: $background-color
+    color: $main-colour
+    box-shadow: 0 0 50px 0 $main-colour
+    font-weight: bold
+    font-style: italic
   .hide-extend
-    display: none
+    visibility: hidden
+    height: 0%
 
 #sfx-images
   display: flex
@@ -94,23 +103,31 @@ p
       padding: 1rem
 
 @media(min-width: 800px)
+  h1
+    margin: 0 0 4rem 0
+
+  #main-container
+    .container
+      margin-top: 8rem
+
   #hnm-images
     button
       order: -2
+      &:hover
+        background-color: $main-colour
+        color: $background-color
     .hide-extend
-      display: block
+      visibility: visible
+      height: 7rem
     .hnm-image-holder:nth-child(7)
-      //background: red
       order: -1
       width: 23rem
       height: 15rem
       margin-bottom: -8rem
     .hnm-image-holder:nth-child(3)
-      //background: orange
       height: 15rem
       margin-bottom: -8rem
     .hnm-image-holder:nth-child(4)
-      //background: yellow
       width: 15rem
       height: 15rem
       margin-bottom: -7.5rem
